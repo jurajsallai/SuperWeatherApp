@@ -1,4 +1,4 @@
-package com.jurajsallai.superweatherapp.DataModel
+package com.jurajsallai.superweatherapp.datamodel
 
 
 import com.google.gson.annotations.Expose

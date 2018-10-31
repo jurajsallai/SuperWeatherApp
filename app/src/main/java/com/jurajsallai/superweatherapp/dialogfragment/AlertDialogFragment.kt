@@ -1,4 +1,4 @@
-package com.jurajsallai.superweatherapp.DialogFragment
+package com.jurajsallai.superweatherapp.dialogfragment
 
 import android.app.AlertDialog
 import android.app.Dialog

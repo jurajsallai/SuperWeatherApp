@@ -1,12 +1,13 @@
 package com.jurajsallai.superweatherapp
 
 import android.content.Context
+import android.databinding.DataBindingUtil
 import android.net.ConnectivityManager
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
-import com.jurajsallai.superweatherapp.DataModel.CurrentWeatherModel
-import com.jurajsallai.superweatherapp.DialogFragment.AlertDialogFragment
+import com.jurajsallai.superweatherapp.databinding.ActivityMainBinding
+import com.jurajsallai.superweatherapp.datamodel.CurrentWeatherModel
+import com.jurajsallai.superweatherapp.dialogfragment.AlertDialogFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -14,12 +15,13 @@ import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val city = tempEditText
-        tempButton.setOnClickListener {
+        val city = enterCityEditText
+        saveButton.setOnClickListener {
             loadData(city.text.toString())
         }
 
@@ -37,6 +39,12 @@ class MainActivity : AppCompatActivity() {
 
                 override fun onResponse(call: Call<CurrentWeatherModel>?, response: Response<CurrentWeatherModel>) {
                     if (response.isSuccessful) {
+                        val binding: ActivityMainBinding = DataBindingUtil.setContentView(this@MainActivity, R.layout.activity_main)
+                        binding.weather = response.body()
+//                  TODO when have correct POJO with iconId
+//                        runOnUiThread {
+//                            drawable = resources.getDrawable(response.body().getIconId)
+//                        }
                         onSuccess(response.body())
                     } else {
                         onFailure()
@@ -52,7 +60,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun onSuccess(currentWeatherModel: CurrentWeatherModel?) {
         val tempCel = (currentWeatherModel?.main?.temp?.minus(273.15)).toString() + "° C"
-        tempTextView.text = tempCel
+
+        savedCitiesTextView.text = tempCel
     }
 
     private fun isOnline(): Boolean {

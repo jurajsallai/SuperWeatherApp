@@ -1,6 +1,6 @@
 package com.jurajsallai.superweatherapp
 
-import com.jurajsallai.superweatherapp.DataModel.CurrentWeatherModel
+import com.jurajsallai.superweatherapp.datamodel.CurrentWeatherModel
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.Retrofit
 import retrofit2.Call
