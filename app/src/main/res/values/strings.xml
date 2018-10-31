@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SuperWeatherApp</string>
+    <string name="error_title">Ops!</string>
+    <string name="error_message">There is a problem with connection. Please try again</string>
+    <string name="error_button">OK</string>
+    <string name="error_dialog_tag">ERROR DIALOG</string>
+</resources>
