@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        // TODO SimpleCursorAdapter for SQLLite
+        // TODO SimpleCursorAdapter pre SQLLite
         array = arrayListOf("Brno", "Zlin")
         val adapter = ArrayAdapter<String>(this, R.layout.list_item_1,array)
         lv.adapter = adapter
