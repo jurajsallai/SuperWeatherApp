@@ -84,19 +84,33 @@
                 android:textColor="@android:color/holo_blue_dark"
                 android:textSize="18sp"
                 android:textStyle="bold" />
+
         </LinearLayout>
 
-        <ScrollView
+        <ListView
+            android:id="@+id/lv"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="56dp"
-            android:background="@android:color/holo_blue_light"
+            android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" >
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+        <!--<ScrollView-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_marginStart="8dp"-->
+            <!--android:layout_marginTop="24dp"-->
+            <!--android:layout_marginEnd="8dp"-->
+            <!--android:layout_marginBottom="56dp"-->
+            <!--android:background="@android:color/holo_blue_light"-->
+            <!--app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--app:layout_constraintStart_toStartOf="parent" >-->
 
             <!--<LinearLayout-->
                 <!--android:id="@+id/cityLayout"-->
@@ -123,13 +137,7 @@
 
             <!--</LinearLayout>-->
 
-        <ListView
-            android:id="@+id/lv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            />
-
-        </ScrollView>
+        <!--</ScrollView>-->
 
 
     </android.support.constraint.ConstraintLayout>

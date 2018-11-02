@@ -35,13 +35,13 @@ class WeatherActivity : AppCompatActivity() {
 
                 override fun onResponse(call: Call<CurrentWeatherModel>?, response: Response<CurrentWeatherModel>) {
                     if (response.isSuccessful) {
+                        onSuccess(response.body())
                         val binding: ActivityWeatherBinding = DataBindingUtil.setContentView(this@WeatherActivity, R.layout.activity_weather)
                         binding.weather = response.body()
 //                  TODO when have correct POJO with iconId
 //                        runOnUiThread {
 //                            drawable = resources.getDrawable(response.body().getIconId)
 //                        }
-                        onSuccess(response.body())
                     } else {
                         onFailure()
                     }
@@ -55,8 +55,8 @@ class WeatherActivity : AppCompatActivity() {
     }
 
     private fun onSuccess(currentWeatherModel: CurrentWeatherModel?) {
-        val tempCel = (currentWeatherModel?.main?.temp?.minus(273.15)).toString() + "° C"
-        //  savedCitiesTextView.text = tempCel // TODO open new Activity for given city
+        val tempCel = (currentWeatherModel?.main?.temp?.minus(273.15)) //.toString() + "° C"
+        currentWeatherModel?.main?.temp = tempCel
     }
 
     private fun isOnline(): Boolean {
