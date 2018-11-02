@@ -1,4 +1,3 @@
 package com.jurajsallai.superweatherapp.datamodel
 
-class User {
-}
+data class User(val id: Int, val city: String)
