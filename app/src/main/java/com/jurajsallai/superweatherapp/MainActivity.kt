@@ -8,6 +8,8 @@ import android.widget.*
 
 import kotlinx.android.synthetic.main.activity_main.*
 import android.widget.AdapterView.OnItemClickListener
+import com.jurajsallai.superweatherapp.dao.DatabaseHelper
+import com.jurajsallai.superweatherapp.datamodel.City
 import kotlinx.android.synthetic.main.activity_weather.*
 import kotlinx.android.synthetic.main.list_item_1.view.*
 
@@ -21,7 +23,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         // TODO SimpleCursorAdapter pre SQLLite
-        array = arrayListOf("Brno", "Zlin")
+        //array = arrayListOf("Brno", "Zlin")
+
+        val db = DatabaseHelper(this, null, null, 1)
+        array = db.getAllCities()
+
         val adapter = ArrayAdapter<String>(this, R.layout.list_item_1,array)
         lv.adapter = adapter
 
@@ -36,6 +42,8 @@ class MainActivity : AppCompatActivity() {
             array.add(city)
             adapter.notifyDataSetChanged()
             lv.adapter = adapter
+            val cityObject = City(city)
+            db.addCity(cityObject)
         }
 
     }
