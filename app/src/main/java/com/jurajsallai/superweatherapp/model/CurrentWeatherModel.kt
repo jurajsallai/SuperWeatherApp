@@ -1,8 +1,9 @@
-package com.jurajsallai.superweatherapp.datamodel
+package com.jurajsallai.superweatherapp.model
 
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import com.jurajsallai.superweatherapp.R
 
 class CurrentWeatherModel {
 
@@ -39,5 +40,9 @@ class CurrentWeatherModel {
     @SerializedName("cod")
     @Expose
     var cod: Int? = null
+
+    var time: String? = null
+    var iconResource: Int? = null
+
 
 }

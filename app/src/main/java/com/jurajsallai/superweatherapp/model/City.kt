@@ -1,4 +1,4 @@
-package com.jurajsallai.superweatherapp.datamodel
+package com.jurajsallai.superweatherapp.model
 
 class City {
     var id: Int = 0

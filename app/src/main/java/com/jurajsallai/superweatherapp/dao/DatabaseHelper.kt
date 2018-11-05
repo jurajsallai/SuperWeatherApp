@@ -5,7 +5,7 @@ import android.content.Context
 
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import com.jurajsallai.superweatherapp.datamodel.City
+import com.jurajsallai.superweatherapp.model.City
 
 class DatabaseHelper(context: Context, name: String?,
                      factory: SQLiteDatabase.CursorFactory?, version: Int)
@@ -64,9 +64,9 @@ class DatabaseHelper(context: Context, name: String?,
     }
 
 
-    fun deleteCity(city: City) {
+    fun deleteCity(cityName: String) {
         val db = this.writableDatabase
-        db.delete(TABLE_CITIES, "$COLUMN_ID = ?", arrayOf(city.id.toString()))
+        db.delete(TABLE_CITIES, "$COLUMN_CITY = ?", arrayOf(cityName))
         db.close();
     }
 

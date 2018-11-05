@@ -1,4 +1,4 @@
-package com.jurajsallai.superweatherapp.datamodel
+package com.jurajsallai.superweatherapp.model
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

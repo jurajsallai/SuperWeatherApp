@@ -6,7 +6,7 @@
     <data>
         <variable
             name="weather"
-            type="com.jurajsallai.superweatherapp.datamodel.CurrentWeatherModel"/>
+            type="com.jurajsallai.superweatherapp.model.CurrentWeatherModel"/>
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -15,22 +15,68 @@
         android:background="@android:color/holo_blue_dark"
         tools:context=".WeatherActivity">
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/textView4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/weatherImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                tools:srcCompat="@drawable/icon01d" />
+
+            <TextView
+                android:id="@+id/cityName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@{weather.name}"
+                android:textColor="@android:color/white"
+                android:textSize="42sp"
+                android:textStyle="bold"
+                tools:text="Brno" />
+        </LinearLayout>
+
+
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
-            android:background="@android:color/holo_blue_light"
-            android:text="@{weather.main.temp.toString()}"
+            android:text="@{String.valueOf(weather.main.temp) + ` °C`}"
             android:textColor="@android:color/white"
-            android:textSize="36sp"
+            android:textSize="40sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="11 °C"/>
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="32dp"
+            android:text="@{weather.time}"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            app:layout_constraintVertical_bias="0.204"
+            tools:text="15:50"/>
 
     </android.support.constraint.ConstraintLayout>
 </layout>
