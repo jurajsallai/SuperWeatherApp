@@ -83,6 +83,12 @@ class WeatherActivity : AppCompatActivity() {
             "09n" -> iconResource = R.drawable.icon09n
             "10d" -> iconResource = R.drawable.icon10d
             "10n" -> iconResource = R.drawable.icon10n
+            "11d" -> iconResource = R.drawable.icon11d
+            "11n" -> iconResource = R.drawable.icon11n
+            "13d" -> iconResource = R.drawable.icon13d
+            "13n" -> iconResource = R.drawable.icon13n
+            "50d" -> iconResource = R.drawable.icon50d
+            "50n" -> iconResource = R.drawable.icon50n
         }
         currentWeatherModel.iconResource = iconResource
 
